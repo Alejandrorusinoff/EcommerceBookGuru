@@ -49,33 +49,23 @@ const App = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={LogIn} />
         <Route exact path="/books" render={() => <BooksContainer />} />
-
-        
         <Route
           exact
           path="/search/:search"
           render={() => <SearchContainer/>}
         /> 
-
         <Route path="/books/:bookId" 
         render={({match})=> 
         <SingleBookContainer bookId={match.params.bookId} />}/>
-
-
-        <Route exact path="/postnewbook" render={() => <AddBookContainer />} />
-       
+        <Route exact path="/postnewbook" render={() => <AddBookContainer />} />     
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/previous" component={Previous} />
-
         <Route
           path="/category/:category"
           render={({ match }) => (
             <Category typeCategory={match.params.category} />
           )}
         />    
-
-        <Route exact path="/category" component={Category} />
-
         <Route exact path="/history" component={History} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/about" component={About} />
