@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { getUserPrevious } from "../axiosRequests/usersAxios";
+import { getUserPrevious } from "../axiosRequests/usersRequests";
 import { addRatingAxios } from "../axiosRequests/ratingsRequests";
 import Rating from "../components/Rating";
-import "../styles/Cart.css";
 import SuccessToast from "../hooks/toastNotifications/SuccessToast";
 import WarningToast from "../hooks/toastNotifications/WarningToast";
+import "../styles/Cart.css";
 
-const Previous = () => {
+const PreviousContainer = () => {
   const [cart, setCart] = useState([]);
   const [rating, setRating] = useState(1);
 
@@ -60,4 +60,4 @@ const Previous = () => {
   );
 };
 
-export default Previous;
+export default PreviousContainer;

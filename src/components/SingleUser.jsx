@@ -3,7 +3,6 @@ import "../styles/SingleUser.css";
 import { Link } from "react-router-dom";
 
 const SingleUser = ({ singleUser }) => {
-  console.log(singleUser);
   return (
     <div className="singleuser">
       <h3>{singleUser.username}</h3>

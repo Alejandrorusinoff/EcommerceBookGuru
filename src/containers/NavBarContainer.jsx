@@ -6,39 +6,38 @@ import { setUser } from "../store/user";
 import isUserValidated from "../hooks/isUserValidated";
 import { getBookByAuthorOrTitle } from "../axiosRequests/booksRequests";
 import Dropdown from "./DropdownContainer";
-import "../styles/NavBar.css";
 import { setInput } from "../store/input";
+import "../styles/NavBar.css";
+
 const imagen = require("../assets/Logo.png");
 
-const NavBar = () => {
+const NavBarContainer = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const input = useSelector((state) => state.input)
+  const input = useSelector((state) => state.input);
   const { user, deletedBookBoolean } = useSelector((store) => store);
 
   const handleChange = (e) => {
-    dispatch(setInput(e.target.value))
+    dispatch(setInput(e.target.value));
   };
 
   const searchBooks = (e) => {
-    const input = e.target.value
-    if(input){
+    const input = e.target.value;
+    if (input) {
       getBookByAuthorOrTitle(input)
-      .then((res) => dispatch(setBooks(res.data)))
-      .then(() => history.push(`/search/${input}`))
-    }
-    else{
-      history.push(`/books`)
+        .then((res) => dispatch(setBooks(res.data)))
+        .then(() => history.push(`/search/${input}`));
+    } else {
+      history.push(`/books`);
     }
   };
 
   useEffect(() => {
-    getBookByAuthorOrTitle(input)
-      .then((res) => dispatch(setBooks(res.data)))
-  }, [deletedBookBoolean]);
+    getBookByAuthorOrTitle(input).then((res) => dispatch(setBooks(res.data)));
+  }, [deletedBookBoolean, input, dispatch]);
 
   const logout = () => {
-    window.FB.api('/me/permissions', 'delete', null, () => window.FB.logout());
+    window.FB.api("/me/permissions", "delete", null, () => window.FB.logout());
     localStorage.clear();
     dispatch(setUser({}));
   };
@@ -54,16 +53,19 @@ const NavBar = () => {
             </Link>
           </div>
           <div className="col-sm-6">
-            <form style={{ width: "auto" }} onChange={searchBooks} onSubmit={(e)=>{e.preventDefault()}}>
-              {/*  <Link to={'/books'}> */}
+            <form
+              style={{ width: "auto" }}
+              onChange={searchBooks}
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+            >
               <input
                 style={{ width: "40vw" }}
                 placeholder="Search books..."
-                // inputProps={{ "aria-label": "search" }}
                 className="search-bar"
                 onChange={handleChange}
               />
-              {/* </Link> */}
             </form>
           </div>
           <div className="userCartRegisterDiv">
@@ -98,8 +100,6 @@ const NavBar = () => {
                     <div className="user"></div>
                   </Link>
                 )}
-                {/* <div className="dropdown"> */}
-                {/* <button class="dropbtn">Dropdown</button> */}
                 <div>
                   {!isUserValidated(user) ? (
                     <div>
@@ -112,15 +112,18 @@ const NavBar = () => {
                       </Link>
                     </div>
                   ) : (
-                      <>
-                    <Link to="/login" className="sub-link" onClick={() => logout()}>
-                      Logout
-                    </Link>
+                    <>
+                      <Link
+                        to="/login"
+                        className="sub-link"
+                        onClick={() => logout()}
+                      >
+                        Logout
+                      </Link>
                     </>
                   )}
                 </div>
-                {/* </div> */}
-                                  </div>
+              </div>
             </div>
           </div>
         </div>
@@ -152,4 +155,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBarContainer;

@@ -1,12 +1,12 @@
 import React from "react";
 import "../styles/About.css";
 
-const About = () => {
+const AboutContainer = () => {
   return (
     <div className="about">
       <hr />
       <h3>
-        BookGuru is a book sales site, a project made by six students from
+        BookGuru is a book sale site, a project made by six students from
         Plataforma 5 in two weeks. You can search for books, view details of each
         book, search by categories, add to the shopping cart, remove books from
         the cart and modify the quantity you're purchasing. From the shopping
@@ -28,4 +28,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutContainer;

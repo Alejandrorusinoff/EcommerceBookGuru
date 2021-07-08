@@ -2,7 +2,7 @@ import React from "react";
 import { getAllOrders } from "../axiosRequests/ordersRequests";
 import "../styles/Cart.css";
 
-const Previous = () => {
+const HistoryContainer = () => {
   const [cart, setCart] = React.useState([]);
 
   React.useEffect(() => {
@@ -37,4 +37,4 @@ const Previous = () => {
   );
 };
 
-export default Previous;
+export default HistoryContainer;

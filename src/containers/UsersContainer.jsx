@@ -3,7 +3,7 @@ import {
   getAllUsers,
   deleteUserAxios,
   setToAdminAxios,
-} from "../axiosRequests/usersAxios";
+} from "../axiosRequests/usersRequests";
 import SuccessToast from "../hooks/toastNotifications/SuccessToast";
 import Users from "../components/Users";
 import "../styles/Users.css";
@@ -29,12 +29,12 @@ const UsersContainer = () => {
   };
 
   const setToAdmin = (userId) => {
-    setToAdminAxios(userId)
-      .then(({ data }) => {
+    setToAdminAxios(userId).then(({ data }) => {
+      getAllUsers().then((res) => {
+        setUsers(res.data);
         SuccessToast(`👩‍💻${data.username} admin status toggled👩‍💻`);
-      })
-      .then(() => getAllUsers())
-      .then((res) => setUsers(res.data));
+      });
+    });
   };
 
   return (

@@ -1,15 +1,15 @@
 import React from "react";
 import axios from "axios";
-import "../styles/Register.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "../store/user";
 import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router-dom";
-import IsButtonDisable from "../hooks/IsButtonDisable";
+import isButtonDisable from "../hooks/isButtonDisable";
 import SuccessToast from "../hooks/toastNotifications/SuccessToast";
 import WarningToast from "../hooks/toastNotifications/WarningToast";
+import "../styles/Register.css";
 
-const Register = () => {
+const RegisterContainer = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -105,11 +105,9 @@ const Register = () => {
           <label>
             Name <br />
             <input
-              // className="formulario container-fluid"
               className="registerInputStyle"
               type="text"
               name="name"
-              placeholder=""
               required
               onChange={handleChange}
             />
@@ -118,10 +116,8 @@ const Register = () => {
           <label>
             Last Name <br />
             <input
-              // className="formulario container-fluid"
               className="registerInputStyle"
               type="text"
-              placeholder=""
               required
               name="lastname"
               onChange={handleChange}
@@ -131,10 +127,8 @@ const Register = () => {
           <label>
             Address <br />
             <input
-              // className="formulario container-fluid"
               className="registerInputStyle"
               type="text"
-              placeholder=""
               required
               name="address"
               onChange={handleChange}
@@ -144,10 +138,8 @@ const Register = () => {
           <label>
             Username <br />
             <input
-              // className="formulario container-fluid"
               className="registerInputStyle"
               type="text"
-              placeholder=""
               required
               name="username"
               onChange={handleChange}
@@ -157,10 +149,8 @@ const Register = () => {
           <label>
             E-mail <br />
             <input
-              // className="formulario container-fluid"
               className="registerInputStyle"
               type="text"
-              placeholder=""
               required
               name="email"
               onBlur={handlerBlur}
@@ -178,10 +168,8 @@ const Register = () => {
           <label>
             Password <br />
             <input
-              // className="formulario container-fluid"
               className="registerInputStyle"
               type="password"
-              placeholder=""
               required
               name="password"
               onBlur={handlerBlur}
@@ -206,7 +194,6 @@ const Register = () => {
             <input required type="checkbox" />
           </div>
         </div>
-        {/* <br /> */}
         <div className="fbButtonRegisterDiv">
           <button
             className="btn btn-facebook botonRegisterFacebook"
@@ -219,18 +206,16 @@ const Register = () => {
         <div className="registerButtonDiv">
           <button
             className="registerButton"
-            disabled={IsButtonDisable(inputRegistro)}
+            disabled={isButtonDisable(inputRegistro)}
           >
             Submit
           </button>
         </div>
-        {/* <br />
-        <br /> */}
       </form>
     </div>
   );
 };
 
-export default Register;
+export default RegisterContainer;
 
 //"Password must be at least 8 characters long, and must contain one number and one capital letter"

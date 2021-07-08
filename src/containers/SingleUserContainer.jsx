@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SingleUser from "../components/SingleUser";
-import { getSingleUser } from "../axiosRequests/usersAxios";
+import { getSingleUser } from "../axiosRequests/usersRequests";
 
 const SingleUserContainer = ({ userId }) => {
   const [singleUser, setSingleUser] = useState({});

@@ -7,6 +7,7 @@ import { updateSingleBook, deleteBookAxios } from "../axiosRequests/booksRequest
 import { useDispatch } from "react-redux";
 import { setDeletedBookBoolean } from "../store/deletedBookBoolean";
 import SuccessToast from "../hooks/toastNotifications/SuccessToast";
+import WarningToast from "../hooks/toastNotifications/WarningToast";
 import store from "../store/store"
 
 const BooksEditContainer = () => {
@@ -16,8 +17,8 @@ const BooksEditContainer = () => {
 
   const changeHandler = (e) => {
     e.preventDefault();
-    let key = e.target.name;
-    let value = e.target.value;
+    const key = e.target.name;
+    const value = e.target.value;
     setBookUpdatedProps({ ...bookUpdatedProps, [key]: value });
   };
 
@@ -28,7 +29,7 @@ const BooksEditContainer = () => {
         SuccessToast("✨ 📚 Book updated!✨ 📚")
         if (res.data) history.push(`/books/${bookId}`);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => WarningToast("😬📚 Couldn't update book 📚😬"));
   }
 
   const bookPropsArray = [

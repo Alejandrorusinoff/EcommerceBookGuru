@@ -5,10 +5,10 @@ import { setUser } from "../store/user";
 import "../styles/LogIn.css";
 import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router-dom";
-import IsButtonDisable from "../hooks/IsButtonDisable";
+import isButtonDisable from "../hooks/isButtonDisable";
 import SuccessToast from "../hooks/toastNotifications/SuccessToast";
 
-export default function LogIn() {
+export default function LoginContainer() {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -127,7 +127,7 @@ export default function LogIn() {
             <div className="singleButtonLoginDiv">
               <button
                 className="botonLogin"
-                disabled={IsButtonDisable(inputSignIn)}
+                disabled={isButtonDisable(inputSignIn)}
               >
                 Submit
               </button>

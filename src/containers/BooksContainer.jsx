@@ -17,7 +17,7 @@ const BooksContainer = () => {
     useEffect(() => {
         getRandomBooks()
         .then(({ data }) => dispatch(setBooks(data)));
-    }, []);
+    }, [dispatch]);
 
     const addOrder = (bookId) => {
         user.id ? addOrderAxios(bookId, user.id) : history.push("/register")

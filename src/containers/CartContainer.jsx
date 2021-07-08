@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getUserCart } from "../axiosRequests/usersAxios";
+import { getUserCart } from "../axiosRequests/usersRequests";
 import { deleteOrderAxios, updateQuantity, checkoutOrder } from '../axiosRequests/ordersRequests';
-import CartTotalPrice from "../hooks/CartTotalPrice";
+import cartTotalPrice from "../hooks/cartTotalPrice";
 import SuccessToast from "../hooks/toastNotifications/SuccessToast";
 import WarningToast from "../hooks/toastNotifications/WarningToast";
 import "../styles/Cart.css";
 
-const Cart = () => {
+const CartContainer = () => {
   const [cart, setCart] = React.useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
   React.useEffect(() => {
@@ -120,7 +120,7 @@ const Cart = () => {
         </tbody>
         <tfoot>
           <tr>
-            <td>Total: {CartTotalPrice(cart)}</td>
+            <td>Total: {cartTotalPrice(cart)}</td>
           </tr>
         </tfoot>
       </table>
@@ -146,4 +146,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartContainer;

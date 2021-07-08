@@ -41,3 +41,15 @@
   color: white;
   background: #780000;
 }
+
+.noResults {
+  width: 100vw;
+  height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noResults h1 {
+  text-decoration: none;
+}

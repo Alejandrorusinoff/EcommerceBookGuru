@@ -12,9 +12,6 @@ export function initFacebookSdk() {
             // autenticacion automatica con la api si esta logueado con facebook
         window.FB.getLoginStatus((response) => {
             if (response.authResponse) {
-                //console.log("getstatus", response.authResponse.accessToken)
-                //statusChange(response)
-                //localStorage.setItem("token", JSON.stringify(response.authResponse.accessToken))
             }
            
             else {
@@ -37,7 +34,7 @@ export function initFacebookSdk() {
 export function statusChange(response) {
     if (response.status === "connected") {
         window.FB.api("/me?fields=email,id,first_name,last_name,name&transport=cors", function(response) {
-            console.log("initFB", response)
+            //console.log("initFB", response)
             localStorage.setItem("user", JSON.stringify({
                 id: response.id,
                 username: response.name,

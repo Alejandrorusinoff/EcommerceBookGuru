@@ -1,4 +1,4 @@
-const CartTotalPrice = (array) => {
+const cartTotalPrice = (array) => {
   let result = 0;
   array &&
     array.forEach((item, index) => {
@@ -7,4 +7,4 @@ const CartTotalPrice = (array) => {
   return result;
 };
 
-export default CartTotalPrice;
+export default cartTotalPrice;

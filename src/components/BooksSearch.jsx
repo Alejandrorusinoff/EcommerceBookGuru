@@ -5,7 +5,7 @@ import "../styles/Books.css";
 const Books = ({ books, addOrder }) => {
   return (
     <div className="books">
-      {books &&
+      {books.length ?
         books.map((book) => {
           return (
             <div key={book.id}>
@@ -25,7 +25,9 @@ const Books = ({ books, addOrder }) => {
               <br />
             </div>
           );
-        })}
+        }) : 
+        <div className="noResults"><h1>No results</h1></div>
+        }
     </div>
   );
 };
