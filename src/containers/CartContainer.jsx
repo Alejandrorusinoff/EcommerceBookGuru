@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { getUserCart } from "../axiosRequests/usersRequests";
-import { deleteOrderAxios, updateQuantity, checkoutOrder } from '../axiosRequests/ordersRequests';
+import {
+  deleteOrderAxios,
+  updateQuantity,
+  checkoutOrder,
+} from "../axiosRequests/ordersRequests";
 import cartTotalPrice from "../hooks/cartTotalPrice";
 import SuccessToast from "../hooks/toastNotifications/SuccessToast";
 import WarningToast from "../hooks/toastNotifications/WarningToast";
@@ -40,15 +44,19 @@ const CartContainer = () => {
   return (
     <div className="cart">
       {/* onClick={() => history.push("/previous")} */}
-      <Link
-        className="sub-link"
-        to="/previous"
-        style={{ textDecoration: "none" }}
-      >
-        <button className="checkout" style={{ textDecoration: "none" }}>
-          Previous Orders
-        </button>
-      </Link>
+      <div className="previousOrdersDiv">
+        <Link
+          className="sub-link"
+          to="/previous"
+          style={{ textDecoration: "none" }}
+        >
+          <div>
+            <button className="checkout" style={{ textDecoration: "none" }}>
+              Previous Orders
+            </button>
+          </div>
+        </Link>
+      </div>
       {/* Cart table */}
       <table className="table">
         <tbody>
@@ -84,7 +92,9 @@ const CartContainer = () => {
                       >
                         -
                       </button>
-                      <div style={{padding: "0em 0.5em"}}>{data.quantity <= 1 ? 1 : data.quantity}</div>
+                      <div style={{ padding: "0em 0.5em" }}>
+                        {data.quantity <= 1 ? 1 : data.quantity}
+                      </div>
                       <button
                         className="button-cart"
                         name="increase"
@@ -124,24 +134,25 @@ const CartContainer = () => {
           </tr>
         </tfoot>
       </table>
-
-      <button
-        className="checkout"
-        disabled={!cart.length > 0 ? true : false}
-        onClick={() => checkout()}
-      >
-        Checkout
-      </button>
-      <br />
-      {user.isAdmin === true ? (
-        <Link
-          to="/history"
-          className="cartCheckoutButton"
-          style={{ textDecoration: "none" }}
+      <div className="checkoutAndOrdersDiv">
+        <button
+          className="checkout"
+          disabled={!cart.length > 0 ? true : false}
+          onClick={() => checkout()}
         >
-          <button className="checkout">See all orders</button>{" "}
-        </Link>
-      ) : null}
+          Checkout
+        </button>
+        <br />
+        {user.isAdmin === true ? (
+          <Link
+            to="/history"
+            className="cartCheckoutButton"
+            style={{ textDecoration: "none" }}
+          >
+            <button className="checkout">See all orders</button>{" "}
+          </Link>
+        ) : null}
+      </div>
     </div>
   );
 };

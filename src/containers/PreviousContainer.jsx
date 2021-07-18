@@ -38,23 +38,24 @@ const PreviousContainer = () => {
           <th>Price</th>
           <th>Rating</th>
         </tr>
-        {cart.map((data, index) => {
-          return (
-            <tr key={index}>
-              <td>{data.book.title}</td>
-              <td>{data.book.author}</td>
-              <td>{data.quantity}</td>
-              <td>{data.book.price}</td>
-              <td>
-                <Rating
-                  submitHandler={submitHandler}
-                  changeHandler={changeHandler}
-                  data={data}
-                />
-              </td>
-            </tr>
-          );
-        })}
+        {cart &&
+          cart.map((data, index) => {
+            return (
+              <tr key={index}>
+                <td>{data.book.title}</td>
+                <td>{data.book.author}</td>
+                <td>{data.quantity}</td>
+                <td>{data.book.price}</td>
+                <td>
+                  <Rating
+                    submitHandler={submitHandler}
+                    changeHandler={changeHandler}
+                    data={data}
+                  />
+                </td>
+              </tr>
+            );
+          })}
       </table>
     </div>
   );

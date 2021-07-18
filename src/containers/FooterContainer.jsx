@@ -12,7 +12,7 @@ const FooterContainer = () => {
           _______________________
           <br />
           <br />
-          Contact Us <br /> Phone: 111111
+          Contact Us <br /> Phone: 1585432288
           <br /> bookguru@books.com
         </div>
 

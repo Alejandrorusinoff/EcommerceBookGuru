@@ -7,13 +7,13 @@ const AboutContainer = () => {
       <hr />
       <h3>
         BookGuru is a book sale site, a project made by six students from
-        Plataforma 5 in two weeks. You can search for books, view details of each
-        book, search by categories, add to the shopping cart, remove books from
-        the cart and modify the quantity you're purchasing. From the shopping
-        cart module you can see the previous orders made by the logged user.
-        Also we have some extra options for the admin users such as edit books,
-        promote admin rights to other users and see all the orders made by any
-        user on the site.
+        Plataforma 5 in two weeks. You can search for books, view details of
+        each book, search by categories, add to the shopping cart, remove books
+        from the cart and modify the quantity you're purchasing. From the
+        shopping cart module you can see the previous orders made by the logged
+        user. Also we have some extra options for the admin users such as edit
+        books, promote admin rights to other users and see all the orders made
+        by any user on the site.
       </h3>
       <br />
       <h3>

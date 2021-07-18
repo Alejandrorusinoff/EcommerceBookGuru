@@ -5,7 +5,6 @@
   background-color: white;
   color: black;
   text-align: center;
-  /* margin-top: 150px; */
   align-items: center;
   justify-content: center;
 }
@@ -28,12 +27,6 @@ h3 {
   transition: color 1s, background 1s;
   border: none;
 }
-
-/* .botonLogin:disabled {
-  color: white;
-  background: grey;
-  transition: color 1s, background 1s;
-} */
 
 .loginInputStyle {
   height: 2em;

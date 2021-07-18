@@ -6,7 +6,7 @@ router.post("/", (req, res) => {
   Cart.create(req.body)
     .then((cart) => res.status(200).json(cart))
     .catch((err) => {
-        res.send("cart already exists!")
+      res.send("cart already exists!");
     });
 });
 

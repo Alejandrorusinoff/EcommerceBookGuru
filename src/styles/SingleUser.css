@@ -4,7 +4,6 @@
   width: 50%;
   height: 62vh;
   margin: auto;
-  /* align-items: center; */
   justify-content: center;
 }
 
@@ -12,11 +11,6 @@ h3 {
   width: 100%;
   text-align: center;
 }
-
-/* .boton {
-  margin: 0 auto;
-  border-radius: 2em;
-} */
 
 .buttonAndLinkDiv {
   display: flex;

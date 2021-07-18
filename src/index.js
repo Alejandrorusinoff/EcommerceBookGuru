@@ -7,15 +7,15 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
-import { initFacebookSdk } from "./methods/initFacebokSdk"
+import { initFacebookSdk } from "./methods/initFacebokSdk";
 
 initFacebookSdk().then(
-    ReactDOM.render(
-        <BrowserRouter>
-            <Provider store={store}>
-                <App />
-            </Provider>
-        </BrowserRouter>,
-        document.getElementById("root")
-    )
-)
+  ReactDOM.render(
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>,
+    document.getElementById("root")
+  )
+);

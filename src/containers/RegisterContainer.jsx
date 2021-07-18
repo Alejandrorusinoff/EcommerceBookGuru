@@ -72,7 +72,7 @@ const RegisterContainer = () => {
                 email: response.email,
                 name: response.first_name,
                 lastname: response.last_name,
-                password: "Hola123123",
+                password: process.env.REACT_APP_PASSWORD_FB,
               };
               if (!user.username) {
                 return;

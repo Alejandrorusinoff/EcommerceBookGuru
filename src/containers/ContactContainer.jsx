@@ -8,7 +8,7 @@ const ContactContainer = () => {
         <hr />
         <h1>Contact Us </h1>
         <br />
-        <h4>Phone: 111111</h4>
+        <h4>Phone: 1585432288</h4>
         <br />
         <h4>E-mail: bookguru@books.com</h4>
         <br />

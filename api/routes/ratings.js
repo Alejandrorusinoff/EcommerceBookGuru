@@ -9,12 +9,11 @@ router.post("/", checkJWT, (req, res) => {
   Rating.findOrCreate({
     where: { [Op.and]: [{ userId }, { bookId }] },
     defaults: req.body,
-  })
-    .then((rating) => {
-        rating[1]
-        ? res.status(200).send(Number(rating[0]).toFixed(1))
-        : res.status(400).send("Book already rated")
-    })
+  }).then((rating) => {
+    rating[1]
+      ? res.status(200).send(Number(rating[0]).toFixed(1))
+      : res.status(400).send("Book already rated");
+  });
 });
 
 module.exports = router;

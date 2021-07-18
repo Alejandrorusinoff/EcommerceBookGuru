@@ -47,7 +47,7 @@ export default function LoginContainer() {
             async function (response) {
               user = {
                 username: response.name,
-                password: "Hola123123",
+                password: process.env.REACT_APP_PASSWORD_FB,
               };
               if (!user.username) {
                 return;

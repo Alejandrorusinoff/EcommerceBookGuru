@@ -36,12 +36,11 @@ const Dropdown = () => {
     "Self-Help",
   ];
 
-
   return (
     <div>
       <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle caret color="" className="drop-color">
-            Categories
+          Categories
         </DropdownToggle>
         <DropdownMenu className="categories">
           {categorias.map((categoria, index) => (

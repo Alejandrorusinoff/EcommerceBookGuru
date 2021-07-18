@@ -24,7 +24,10 @@ router.get("/author/:author", bookController.book_getByAuthor);
 router.get("/category/:category", bookController.book_getByCategory);
 
 //Devolvemos los libros relacionados con el autor y categoria
-router.get("/authorTitle/:authorTitle", bookController.book_getByAuthorCategory);
+router.get(
+  "/authorTitle/:authorTitle",
+  bookController.book_getByAuthorCategory
+);
 
 //Borramos un libro por PK
 router.delete("/id/:id", checkJWT, bookController.book_delete);
@@ -33,6 +36,6 @@ router.delete("/id/:id", checkJWT, bookController.book_delete);
 router.put("/id/:id", checkJWT, bookController.book_update);
 
 //tramos el promedio de ratings de un libro
-router.get('/ratings/:id', bookController.book_ratings)
+router.get("/ratings/:id", bookController.book_ratings);
 
 module.exports = router;

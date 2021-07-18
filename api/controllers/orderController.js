@@ -1,8 +1,7 @@
 const { Order, User, Book } = require("../db/models");
-const { Op } = require('sequelize');
+const { Op } = require("sequelize");
 
 module.exports = {
-
   user_validation: function (req, res) {
     User.findByPk(req.user.id)
       .then((user) => {
@@ -12,19 +11,15 @@ module.exports = {
   },
 
   order_creation: function (req, res) {
-
     const { userId, bookId } = req.body;
     Order.findOrCreate({
       where: { [Op.and]: [{ bookId }, { userId }, { bought: false }] },
       defaults: req.body,
-    })
-
-    .then((order) => {
+    }).then((order) => {
       order[1]
-      ? res.status(200).send(order[0])
-      : res.status(400).send("Book already add to cart")
-    })
-
+        ? res.status(200).send(order[0])
+        : res.status(400).send("Book already add to cart");
+    });
   },
 
   order_checkout: function (req, res) {
@@ -75,5 +70,4 @@ module.exports = {
       include: Book,
     }).then((pendingOrders) => res.status(200).send(pendingOrders));
   },
-
 };

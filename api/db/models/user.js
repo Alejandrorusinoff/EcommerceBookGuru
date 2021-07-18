@@ -15,17 +15,17 @@ User.init(
       allowNull: false,
     },
     address: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
     },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -35,8 +35,8 @@ User.init(
     },
     isAdmin: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false
-    }
+      defaultValue: false,
+    },
   },
   { sequelize: db, modelName: "user", timestamps: false }
 );
@@ -51,12 +51,12 @@ User.prototype.hashPassword = function (password) {
 };
 
 User.prototype.validPassword = function (passwordEnLogin) {
-  return this.password === this.hashPassword(passwordEnLogin)
-}
+  return this.password === this.hashPassword(passwordEnLogin);
+};
 
-User.prototype.toggleAdminStatus = function() {
-  const status = this.getDataValue('isAdmin');
-  return this.update({isAdmin: !status})
-}
+User.prototype.toggleAdminStatus = function () {
+  const status = this.getDataValue("isAdmin");
+  return this.update({ isAdmin: !status });
+};
 
 module.exports = User;

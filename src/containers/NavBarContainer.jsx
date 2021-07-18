@@ -18,10 +18,12 @@ const NavBarContainer = () => {
   const { user, deletedBookBoolean } = useSelector((store) => store);
 
   const handleChange = (e) => {
+    e.preventDefault();
     dispatch(setInput(e.target.value));
   };
 
   const searchBooks = (e) => {
+    e.preventDefault();
     const input = e.target.value;
     if (input) {
       getBookByAuthorOrTitle(input)
@@ -33,8 +35,13 @@ const NavBarContainer = () => {
   };
 
   useEffect(() => {
-    getBookByAuthorOrTitle(input).then((res) => dispatch(setBooks(res.data)));
-  }, [deletedBookBoolean, input, dispatch]);
+    getBookByAuthorOrTitle(input)
+      .then((res) => {
+        dispatch(setBooks(res.data));
+        history.push(`/search/${input}`);
+      })
+      .catch((err) => err);
+  }, [deletedBookBoolean, input, dispatch, history]);
 
   const logout = () => {
     window.FB.api("/me/permissions", "delete", null, () => window.FB.logout());
@@ -55,7 +62,7 @@ const NavBarContainer = () => {
           <div className="col-sm-6">
             <form
               style={{ width: "auto" }}
-              onChange={searchBooks}
+              onChange={(e) => searchBooks(e)}
               onSubmit={(e) => {
                 e.preventDefault();
               }}
@@ -64,7 +71,7 @@ const NavBarContainer = () => {
                 style={{ width: "40vw" }}
                 placeholder="Search books..."
                 className="search-bar"
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
               />
             </form>
           </div>
@@ -72,7 +79,7 @@ const NavBarContainer = () => {
             {isUserValidated(user) ? (
               <h4
                 className="sub-link"
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", margin: 0 }}
               >{`${user.username}`}</h4>
             ) : null}
             <div className="col-sm-4">

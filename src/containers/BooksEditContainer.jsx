@@ -10,7 +10,10 @@ import SuccessToast from "../hooks/toastNotifications/SuccessToast";
 import WarningToast from "../hooks/toastNotifications/WarningToast";
 import store from "../store/store"
 
+import { useSelector } from 'react-redux'
+
 const BooksEditContainer = () => {
+    const input = useSelector((state) => state.input)
   const [bookUpdatedProps, setBookUpdatedProps] = useState({});
   const dispatch = useDispatch()
   const history = useHistory();
@@ -29,7 +32,7 @@ const BooksEditContainer = () => {
         SuccessToast("✨ 📚 Book updated!✨ 📚")
         if (res.data) history.push(`/books/${bookId}`);
       })
-      .catch((err) => WarningToast("😬📚 Couldn't update book 📚😬"));
+      .catch(() => WarningToast("😬📚 Couldn't update book 📚😬"));
   }
 
   const bookPropsArray = [
@@ -42,10 +45,16 @@ const BooksEditContainer = () => {
   const deleteBook = (e, bookId) => {
     e.preventDefault();
     deleteBookAxios(bookId).then(() => {
-      dispatch(setDeletedBookBoolean(!store.getState().deletedBookBoolean))
-      SuccessToast("🦥Book deleted!🦥")
-      history.push(`/books`);
-    });
+        if (input === "") {
+            dispatch(setDeletedBookBoolean(!store.getState().deletedBookBoolean))
+            history.push('/books')
+            SuccessToast("🦥Book deleted!🦥")
+        } 
+        else {
+            dispatch(setDeletedBookBoolean(!store.getState().deletedBookBoolean))
+            SuccessToast("🦥Book deleted!🦥")
+        }
+    })
   };
 
   return (

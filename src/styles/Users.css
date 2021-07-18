@@ -1,7 +1,6 @@
 .usersMainDiv {
   height: 82vh;
   width: 95vw;
-  /* padding: 250px 0px 0px 0px; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -31,6 +30,5 @@
 }
 
 .usersLinkProperties:hover {
-  /* text-decoration: none; */
   color: #780000;
 }

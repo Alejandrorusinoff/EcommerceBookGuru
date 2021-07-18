@@ -16,7 +16,7 @@ Order.init(
     },
     date: {
       type: DataTypes.STRING,
-    }
+    },
   },
   { sequelize: db, modelName: "order", timestamps: false }
 );

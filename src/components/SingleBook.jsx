@@ -9,7 +9,9 @@ const SingleBook = ({ singleBook, addOrder, rating }) => {
   const { isAdmin } = useSelector((store) => store.user);
 
   const dispatch = useDispatch();
-  dispatch(setSingleBook(singleBook));
+    React.useEffect(() => {
+        dispatch(setSingleBook(singleBook));
+    }, [dispatch, singleBook])
 
   return (
     <div className="singlebook">

@@ -5,7 +5,7 @@ import AddBook from "../components/AddBook";
 import { useHistory } from "react-router-dom";
 import { postBookAxios } from "../axiosRequests/booksRequests";
 import SuccessToast from "../hooks/toastNotifications/SuccessToast";
-import WarningToast from "../hooks/toastNotifications/WarningToast"
+import WarningToast from "../hooks/toastNotifications/WarningToast";
 
 const AddBookContainer = () => {
   const [newBookProps, setNewBookProps] = useState({});

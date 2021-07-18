@@ -21,17 +21,18 @@ const HistoryContainer = () => {
           <th>Quantity</th>
           <th>Price</th>
         </tr>
-        {cart.map((data, index) => {
-          return (
-            <tr key={index}>
-              <td>{data.user.username}</td>
-              <td>{data.book.title}</td>
-              <td>{data.book.author}</td>
-              <td>{data.quantity}</td>
-              <td>{data.book.price}</td>
-            </tr>
-          );
-        })}
+        {cart &&
+          cart.map((data, index) => {
+            return (
+              <tr key={index}>
+                <td>{data.user.username}</td>
+                <td>{data.book.title}</td>
+                <td>{data.book.author}</td>
+                <td>{data.quantity}</td>
+                <td>{data.book.price}</td>
+              </tr>
+            );
+          })}
       </table>
     </div>
   );
